@@ -9,59 +9,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # -------------------------
-      # Checkout repository
-      # -------------------------
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # -------------------------
-      # Setup Python
-      # -------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.9"
 
-      # -------------------------
-      # Install dependencies
-      # -------------------------
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
+          python -m pip install pytest
 
-      # -------------------------
-      # Code formatting check
-      # -------------------------
       - name: Lint with black
-        run: |
-          black --check src/ tests/
+        run: black --check src/ tests/
 
-      # -------------------------
-      # Static code analysis
-      # -------------------------
       - name: Lint with flake8
-        run: |
-          flake8 src/ tests/
+        run: flake8 src/ tests/
 
-      # -------------------------
-      # Run unit tests
-      # -------------------------
       - name: Run unit tests
-        run: |
-          python -m pytest -v
+        run: python -m pytest -v
 
-      # -------------------------
-      # Run training pipeline (dry-run)
-      # -------------------------
       - name: Run training pipeline (dry-run)
-        run: |
-          python -m src.train --dry-run
+        run: python -m src.train --dry-run
 
-      # -------------------------
-      # Upload artifacts (optional)
-      # -------------------------
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
