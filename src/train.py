@@ -37,7 +37,6 @@ def load_data(path):
     return df
 
 
-
 def main(args):
     df = load_data(args.data)
 
@@ -60,9 +59,7 @@ def main(args):
         "oldpeak",
     ]
 
-    pipeline = get_preprocessing_pipeline(
-        categorical_features, numerical_features
-    )
+    pipeline = get_preprocessing_pipeline(categorical_features, numerical_features)
 
     X = df.drop("target", axis=1)
     y = df["target"]
@@ -121,18 +118,13 @@ def main(args):
 
     print("Training completed. Models and pipeline saved.")
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "--data",
-        default="./data/processed.cleveland.data"
-    )
+    parser.add_argument("--data", default="./data/processed.cleveland.data")
 
-    parser.add_argument(
-        "--dry-run",
-        action="store_true"
-    )
+    parser.add_argument("--dry-run", action="store_true")
 
     args = parser.parse_args()
     main(args)
