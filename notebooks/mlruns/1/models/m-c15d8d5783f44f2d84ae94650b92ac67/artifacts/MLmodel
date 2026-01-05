@@ -1,0 +1,22 @@
+artifact_path: /Users/rakeshjha/Documents/GitHub/Group_125_MLops_Assignment_01/notebooks/mlruns/1/models/m-c15d8d5783f44f2d84ae94650b92ac67/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+mlflow_version: 3.8.1
+model_id: m-c15d8d5783f44f2d84ae94650b92ac67
+model_size_bytes: 148043
+model_uuid: m-c15d8d5783f44f2d84ae94650b92ac67
+prompts: null
+run_id: 18f6631cbca04f5d822aaaa5d0a0bf80
+utc_time_created: '2026-01-05 08:28:57.367416'

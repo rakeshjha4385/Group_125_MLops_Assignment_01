@@ -9,4 +9,3 @@ black
 flake8
 fastapi
 uvicorn
-joblib
