@@ -10,3 +10,4 @@ flake8
 fastapi
 uvicorn
 pytest
+prometheus_fastapi_instrumentator
