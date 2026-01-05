@@ -59,7 +59,10 @@ def main(args):
         "oldpeak",
     ]
 
-    pipeline = get_preprocessing_pipeline(categorical_features, numerical_features)
+    pipeline = get_preprocessing_pipeline(
+        categorical_features,
+        numerical_features,
+    )
 
     X = df.drop("target", axis=1)
     y = df["target"]
@@ -73,11 +76,11 @@ def main(args):
     )
 
     X_train_prep = pipeline.fit_transform(X_train)
-    X_test_prep = pipeline.transform(X_test)
 
     if args.dry_run:
         print(
-            "Dry run: Preprocessing and splits succeeded. Exiting before model training."
+            "Dry run: Preprocessing and splits succeeded. "
+            "Exiting before model training."
         )
         return
 
